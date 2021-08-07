@@ -1,0 +1,29 @@
+:Namespace Utils
+
+      pget←{
+     ⍝ Get input of an exercise of Advent Of Code
+     ⍝ Put that text in {pnum}.txt in {year}/input folder, to access it anytime
+          (year pnum)←⍕¨⍵
+          path←year,'\input\',pnum,'.txt'
+          ⎕NEXISTS path:⊃⎕NGET path 1 ⍝ If the file exist, just read it
+          cookie←'_ga=GA1.2.1495264068.1606900356;'
+          cookie,←'session=53616c7465645f5fea0955499d8f76be3cddd1509d250dcdb4e01056f8f0c5dbaf0f12fb1f87c15e66f73f4d1838ce02;'
+          cookie,←'_gid=GA1.2.1670975789.1627740330'
+          url←'https://adventofcode.com/',year,'/day/',pnum,'/input'
+          resp←HttpCommand.Get url''('cookie'cookie)
+          ⊃⎕NGET path 1⊣resp.Data ⎕NPUT path
+      }
+    ints←⍎¨⎕D∘(∊⍨⊆⊢)
+    sints←⍎¨(⎕D,'-')∘(∊⍨⊆⊢)
+    chars←(⎕A,⎕C ⎕A)∘(∊⍨⊆⊢)
+    spaces←' '∘(≠⊆⊢)
+
+    blanks←⊢⊆⍨0≠≢¨
+    merge←1↓' '∘((⊃,/)⍤,,⍤0)
+    format←merge ¨blanks
+    
+    dirs←(⊢⍪-)∘.=⍨⍳2
+    g←⍬
+    mkgraph←{ns←⍸'#'≠⍵ ⋄ g⊢←{(⎕IO+≢ns)~⍨ns⍳cs←↓dirs+⍤1⊢⍵}¨ns}
+
+:EndNamespace
