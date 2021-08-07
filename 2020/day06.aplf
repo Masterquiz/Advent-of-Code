@@ -1,0 +1,7 @@
+ day06←{
+     inp←U.format⊃⎕NGET'2020\input\6.txt' 1
+     t1←+/(¯1+≢∘∪)¨inp
+     t2←+/(≢⍤∊∩/)¨' '(≠⊆⊢)¨inp
+     out←'Task 1: ',t1
+     ↑out,⍥⊂'Task 2: ',t2
+ }
