@@ -1,0 +1,8 @@
+ day02←{
+     inp←⊃⎕NGET'2020\input\2.txt' 1
+     inp←↓⎕CSV('\W+'⎕R','⊢inp)'' 4
+     t1←+/{a b c d←⍵ ⋄ 1=(a,1+b)⍸+/d∊c}¨inp
+     t2←+/{a b c d←⍵ ⋄ ≠/c=d[a b]}¨inp
+     out←'Task 1: ',t1
+     ↑out,⍥⊂'Task 2: ',t2
+ }

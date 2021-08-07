@@ -1,0 +1,9 @@
+ day01←{
+    ⍝ To revise
+     inp←⊃⎕NGET'2015\input\2.txt' 1
+     ints←{⍎¨⍵(∊⊆⊣)⎕D}
+     t1←+/{{(2+.×⍵)+⌊/⍵}2×/4⍴⍵}¨(3000⍴1 0 0)⊂ints inp
+     t2←+/{(×/⍵)+2×+/⍵[2↑⍋⍵]}¨(3000⍴1 0 0)⊂ints inp
+     out←'Task 1: ',t1
+     ↑out,⍥⊂'Task 2: ',t2
+ }
