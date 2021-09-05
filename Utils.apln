@@ -6,9 +6,9 @@
           (year pnum)←⍕¨⍵
           path←year,'\input\',pnum,'.txt'
           ⎕NEXISTS path:⊃⎕NGET path 1 ⍝ If the file exist, just read it
-          cookie←'_ga=GA1.2.1495264068.1606900356;'
-          cookie,←'session=53616c7465645f5fea0955499d8f76be3cddd1509d250dcdb4e01056f8f0c5dbaf0f12fb1f87c15e66f73f4d1838ce02;'
-          cookie,←'_gid=GA1.2.1670975789.1627740330'
+          cookie←'_ga=<>;'  Put cookie's value instead of '<>'
+          cookie,←'session=<>;'
+          cookie,←'_gid=<>'
           url←'https://adventofcode.com/',year,'/day/',pnum,'/input'
           resp←HttpCommand.Get url''('cookie'cookie)
           ⊃⎕NGET path 1⊣resp.Data ⎕NPUT path
