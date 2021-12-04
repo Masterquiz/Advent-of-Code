@@ -1,0 +1,7 @@
+day01←{
+     inp←⍎¨⊃⎕NGET'2020\input\1.txt' 1
+     t1←{+/¯1=×2-/⍎¨⍵}inp
+     t2←{+/¯1=×2-/3+/⍎¨⍵}inp
+     out←'Task 1: ',t1
+     ↑out,⍥⊂'Task 2: ',t2
+ }
