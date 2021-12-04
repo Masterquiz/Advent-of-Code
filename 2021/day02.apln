@@ -1,0 +1,16 @@
+:Namespace day02
+    sol1 ← {×/∊+/(2↑⍎)¨'u'⎕R'-'⊢'f'⎕R'0 '⊢('d'~⍨⊃,⊃∘⌽)¨⍵}
+    
+    res ← sol2 inp ;aim ;command ;depth ;horizontal ;value
+        (horizontal depth aim) ← 0
+        :For (command value) :In (⊃,⍎∘⊃∘⌽)¨inp
+            :If command='u'
+                aim -← value
+            :ElseIf command='d'
+                aim +← value
+            :ElseIf command='f'
+                (horizontal depth) +← value×1 aim
+            :EndIf
+        :EndFor
+        res ← horizontal×depth
+:EndNamespace
