@@ -1,0 +1,4 @@
+:Namespace day01
+    sol1 ← (+/2</⊢) ⍎¨pget 2021 1 1
+    sol2 ← (+/2</3+/⊢) ⍎¨pget 2021 1 2
+:EndNamespace
