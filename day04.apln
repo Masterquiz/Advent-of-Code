@@ -1,0 +1,23 @@
+:Namespace day04
+    numbers ← ⍬
+    boards ← ⍬
+    
+    format ← {
+        numbers boards ⊢← (1∘↑,⍥⊂1∘↓)⍵⊆⍨0≠≢¨⍵
+        numbers ⊢← ⍎¨','(≠⊆⊢)∊numbers
+        boards ⊢← (↑⍎¨)¨boards
+    }
+    
+    sol1 ← {
+        boards ← ⍺
+        new_num ← ⍵
+
+        ⍬≡⍴≢boards: 
+        boards ← {¯1@(⍸new_num=⍵)⊢⍵}¨boards
+        mask ← (¯5∊+⌿,+/)¨boards
+        1∊mask: new_num×5++/+/⊃mask/boards
+    }
+
+    ⍝ sol1 format pget 2021 4 1
+    ⍝ sol2 format pget 2021 4 2
+:EndNamespace
