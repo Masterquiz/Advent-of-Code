@@ -1,0 +1,3 @@
+:Namespace day03
+    sol1 ← {×/2⊥¨(⊢,~)(+/>≢-+/)'1'=⍵}
+:EndNamespace
