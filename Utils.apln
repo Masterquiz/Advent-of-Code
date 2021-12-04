@@ -1,18 +1,19 @@
 :Namespace Utils
 
       pget←{
-     ⍝ Get input of an exercise of Advent Of Code
-     ⍝ Put that text in {pnum}.txt in {year}/input folder, to access it anytime
-          (year pnum)←⍕¨⍵
-          path←year,'\input\',pnum,'.txt'
-          ⎕NEXISTS path:⊃⎕NGET path 1 ⍝ If the file exist, just read it
-          cookie←'_ga=<>;'  Put cookie's value instead of '<>'
-          cookie,←'session=<>;'
-          cookie,←'_gid=<>'
+          ⍝ Get input of an exercise of Advent Of Code
+          ⍝ Put that text in {pnum}_{part}.txt in {year}/input folder
+          (year pnum part) ← ⍕¨⍵
+          path ← year,'\input\',pnum,'_',part,'.txt'
+          ⎕NEXISTS path: ⊃⎕NGET path 1 ⍝ If the file exist, just read it
+          cookie  ← '_gid=<>;'  ⍝ Put cookie's value instead of '<>'
+          cookie ,← 'session=<>;'
+          cookie ,← '_ga=<>'
           url←'https://adventofcode.com/',year,'/day/',pnum,'/input'
           resp←HttpCommand.Get url''('cookie'cookie)
           ⊃⎕NGET path 1⊣resp.Data ⎕NPUT path
       }
+      
     ints←⍎¨⎕D∘(∊⍨⊆⊢)
     sints←⍎¨(⎕D,'-')∘(∊⍨⊆⊢)
     chars←(⎕A,⎕C ⎕A)∘(∊⍨⊆⊢)
