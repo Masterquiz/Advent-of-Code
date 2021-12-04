@@ -6,6 +6,8 @@ Uploaded files:
   - Utilis
     - [X] Contains a function to take the input from the site
     - [X] Contains some usefull function to solve problems
+  - 2021
+    - [X] First 3 problems
   - 2020
     - [X] First 6 problems
   - 2015
