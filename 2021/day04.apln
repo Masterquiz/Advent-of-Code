@@ -1,4 +1,6 @@
 :Namespace day04
+    ⍝ Not completed
+
     numbers ← ⍬
     boards ← ⍬
     
